@@ -6,7 +6,8 @@
 
 int main()
 {
-    int balance, transfer_money;
+    signed int balance;
+    double transfer_money;
     balance = BEGIN_BALANCE;
 
     int decision;
@@ -16,23 +17,28 @@ int main()
     switch (decision)
     {
     case 1:
-        printf("Current balance: %d%s\n", balance, MONEY_SYMBOL);
+        printf("Current balance: %d %s\n", balance, MONEY_SYMBOL);
         break;
 
     case 2:
         printf("Enter deposit amount: ");
-        scanf("%d", &transfer_money);
+        scanf("%lf", &transfer_money);
 
-        printf("Deposited: %d\n", transfer_money);
-        printf("Current balance: %d\n", balance + transfer_money);
+        printf("Deposited: %.2lf %s\n", transfer_money, MONEY_SYMBOL);
+        printf("Current balance: %.2lf %s\n", (double)balance + transfer_money, MONEY_SYMBOL);
         break;
 
     case 3:
         printf("Enter withdrawal amount: ");
-        scanf("%d", &transfer_money);
+        scanf("%lf", &transfer_money);
 
-        printf("Withdrawal successful!\n");
-        printf("Current balance: %d\n", balance - transfer_money);
+        if(transfer_money <= balance){
+            printf("Withdrawal successful!\n");
+            printf("Current balance: %.2lf %s\n", (double)balance - transfer_money, MONEY_SYMBOL);
+            break;
+        }
+        
+        printf("Withdrawal amount cannot be greater than the balance.\n");
         break;
 
     case 4:
