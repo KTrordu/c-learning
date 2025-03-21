@@ -16,12 +16,23 @@ int main()
     unsigned number_books, late_days, total_fee = 0;
     printf("Enter the number of books: ");
     scanf("%u", &number_books);
+    if (number_books <= 0)
+    {
+        printf("Number of books must be positive.\n");
+        return EXIT_FAILURE;
+    }
+    
 
     for (int i = 1; i <= number_books; i++)
     {
         printf("Enter days late for book %d: ", i);
         scanf("%u", &late_days);
-
+        if (late_days <= 0)
+        {
+            printf("Number of days must be positive.\n");
+            return EXIT_FAILURE;
+        }
+        
         total_fee += determine_fee(late_days);
     }
     
@@ -42,6 +53,6 @@ unsigned determine_fee(unsigned late_days)
         return MORE_THAN_ONE_MONTH_FEE;
     } else {
         printf("Invalid value.\n");
-        return -1;
+        return 0;
     }
 }
