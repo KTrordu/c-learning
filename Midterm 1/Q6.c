@@ -13,7 +13,7 @@ int main()
 
     for (int i = 1; i <= n; i++)
     {
-        result +=  (power(x, i) * power(-1, i - 1)) / i;
+        result += (power(x, i) * power(-1, i - 1)) / i;
     }
     
     printf("ln(%.2lf) = %.2lf\n", x + 1, result);
