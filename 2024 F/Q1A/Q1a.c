@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
                 space_count++;
             }
         }
-        printf("Number of spaces between the words are: %d", space_count);
+        printf("Number of spaces between the words: %d", space_count);
     }
     fclose(fPtr);
 
