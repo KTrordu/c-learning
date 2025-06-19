@@ -15,7 +15,7 @@ int main()
         if ((dPtr = fopen("data.txt", "r")) == NULL)
         {
             puts("data.txt could not be opened.\n");
-        return EXIT_FAILURE;
+            return EXIT_FAILURE;
         }
         else
         {
