@@ -20,12 +20,9 @@ int main(int argc, char *argv[])
         else
         {
             char line[1000];
-            int line_number = 0;
 
             while(fgets(line, sizeof(line), lrPtr))
             {
-                line_number++;
-
                 line[strcspn(line, "\n")] = 0;
 
                 if (strstr(line, "[ERROR]"))
